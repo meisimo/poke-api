@@ -1,4 +1,6 @@
-from typing import List, TYPE_CHECKING, TypedDict
+from typing import Dict, List, TYPE_CHECKING, TypedDict
+from collections import Counter
+from statistics import median, variance, mean
 
 
 if TYPE_CHECKING:
@@ -11,11 +13,13 @@ if TYPE_CHECKING:
         max_growth_time: int
         variance_growth_time: float
         mean_growth_time: float
-        frequency_growth_time: float
+        frequency_growth_time: Dict[int, int]
 
 
 class BerryStats():
     def __init__(self, berries: List['BerryDetail']) -> None:
+        if not berries:
+            raise ValueError('berries cannot be empty')
         self._berries = berries
 
     @property
@@ -23,25 +27,19 @@ class BerryStats():
         return self._berries
 
     def get_min_growth_time(self) -> int:
-        # TODO: Pending to implement
-        ...
+        return min(b['growth_time'] for b in self._berries)
 
     def get_max_growth_time(self) -> int:
-        # TODO: Pending to implement
-        ...
+        return max(b['growth_time'] for b in self._berries)
 
-    def median_growth_time(self) -> float:
-        # TODO: Pending to implement
-        ...
+    def get_median_growth_time(self) -> float:
+        return median(b['growth_time'] for b in self._berries)
 
-    def variance_growth_time(self) -> float:
-        # TODO: Pending to implement
-        ...
+    def get_variance_growth_time(self) -> float:
+        return variance(b['growth_time'] for b in self._berries)
 
-    def mean_growth_time(self) -> float:
-        # TODO: Pending to implement
-        ...
+    def get_mean_growth_time(self) -> float:
+        return mean(b['growth_time'] for b in self._berries)
 
-    def frequency_growth_time(self) -> float:
-        # TODO: Pending to implement
-        ...
+    def get_frequency_growth_time(self) -> Dict[int, int]:
+        return Counter(b['growth_time'] for b in self._berries)

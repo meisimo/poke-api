@@ -1,0 +1,163 @@
+[
+  {
+    "firmness": {
+      "name": "hard",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/3/"
+    },
+    "flavors": [],
+    "growth_time": 18,
+    "id": 42,
+    "item": {
+      "name": "kebia-berry",
+      "url": "https://pokeapi.co/api/v2/item/167/"
+    },
+    "max_harvest": 5,
+    "name": "kebia",
+    "natural_gift_power": 60,
+    "natural_gift_type": {
+      "name": "poison",
+      "url": "https://pokeapi.co/api/v2/type/4/"
+    },
+    "size": 90,
+    "smoothness": 30,
+    "soil_dryness": 6
+  },
+  {
+    "firmness": {
+      "name": "very-soft",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/1/"
+    },
+    "flavors": [],
+    "growth_time": 18,
+    "id": 46,
+    "item": {
+      "name": "tanga-berry",
+      "url": "https://pokeapi.co/api/v2/item/171/"
+    },
+    "max_harvest": 5,
+    "name": "tanga",
+    "natural_gift_power": 60,
+    "natural_gift_type": {
+      "name": "bug",
+      "url": "https://pokeapi.co/api/v2/type/7/"
+    },
+    "size": 42,
+    "smoothness": 35,
+    "soil_dryness": 6
+  },
+  {
+    "firmness": {
+      "name": "super-hard",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/5/"
+    },
+    "flavors": [],
+    "growth_time": 18,
+    "id": 51,
+    "item": {
+      "name": "babiri-berry",
+      "url": "https://pokeapi.co/api/v2/item/176/"
+    },
+    "max_harvest": 5,
+    "name": "babiri",
+    "natural_gift_power": 60,
+    "natural_gift_type": {
+      "name": "steel",
+      "url": "https://pokeapi.co/api/v2/type/9/"
+    },
+    "size": 265,
+    "smoothness": 35,
+    "soil_dryness": 6
+  },
+  {
+    "firmness": {
+      "name": "hard",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/3/"
+    },
+    "flavors": [],
+    "growth_time": 24,
+    "id": 60,
+    "item": {
+      "name": "enigma-berry",
+      "url": "https://pokeapi.co/api/v2/item/185/"
+    },
+    "max_harvest": 5,
+    "name": "enigma",
+    "natural_gift_power": 80,
+    "natural_gift_type": {
+      "name": "bug",
+      "url": "https://pokeapi.co/api/v2/type/7/"
+    },
+    "size": 155,
+    "smoothness": 60,
+    "soil_dryness": 7
+  },
+  {
+    "firmness": {
+      "name": "very-hard",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/4/"
+    },
+    "flavors": [],
+    "growth_time": 24,
+    "id": 55,
+    "item": {
+      "name": "salac-berry",
+      "url": "https://pokeapi.co/api/v2/item/180/"
+    },
+    "max_harvest": 5,
+    "name": "salac",
+    "natural_gift_power": 80,
+    "natural_gift_type": {
+      "name": "fighting",
+      "url": "https://pokeapi.co/api/v2/type/2/"
+    },
+    "size": 95,
+    "smoothness": 40,
+    "soil_dryness": 4
+  },
+  {
+    "firmness": {
+      "name": "very-hard",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/4/"
+    },
+    "flavors": [],
+    "growth_time": 8,
+    "id": 10,
+    "item": {
+      "name": "sitrus-berry",
+      "url": "https://pokeapi.co/api/v2/item/135/"
+    },
+    "max_harvest": 5,
+    "name": "sitrus",
+    "natural_gift_power": 60,
+    "natural_gift_type": {
+      "name": "psychic",
+      "url": "https://pokeapi.co/api/v2/type/14/"
+    },
+    "size": 95,
+    "smoothness": 20,
+    "soil_dryness": 7
+  },
+  {
+    "firmness": {
+      "name": "soft",
+      "url": "https://pokeapi.co/api/v2/berry-firmness/2/"
+    },
+    "flavors": [],
+    "growth_time": 24,
+    "id": 63,
+    "item": {
+      "name": "jaboca-berry",
+      "url": "https://pokeapi.co/api/v2/item/188/"
+    },
+    "max_harvest": 5,
+    "name": "jaboca",
+    "natural_gift_power": 80,
+    "natural_gift_type": {
+      "name": "dragon",
+      "url": "https://pokeapi.co/api/v2/type/16/"
+    },
+    "size": 33,
+    "smoothness": 60,
+    "soil_dryness": 7
+  }
+]
