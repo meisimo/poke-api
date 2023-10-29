@@ -50,7 +50,7 @@ def test_all_berry_stats(mocker, monkeypatch):
 
     response = client.get("/allBerryStats")
     assert response.status_code == 200
-
+    assert response.headers['content-type'] == 'application/json'
     assert response.json() == {
         'berries_names': [
             'chople',
@@ -72,3 +72,12 @@ def test_all_berry_stats(mocker, monkeypatch):
             '24': 3,
         }
     }
+
+def test_histogram_endpoint(mocker, monkeypatch):
+    mock_request(mocker, monkeypatch)
+
+    response = client.get("/allBerreyHistogram")
+
+    assert response.status_code == 200
+    assert response.headers['content-type'] == 'text/html; charset=utf-8'
+    assert r'<img src="data:image/png;base64' in response.text

@@ -1,10 +1,11 @@
+import base64
 import json
 from typing import Dict, TYPE_CHECKING, TypedDict
 
-from api.cache import cache_static_endpoint
+from api.cache import cache_fn_static_result
 
 from .services import fetch_all_berries
-from .berry_stats import BerryStats
+from .berry_stats import BerryStats, BerryStatsStatsPlot
 
 if TYPE_CHECKING:
     class BerryStatsDict(TypedDict):
@@ -29,14 +30,23 @@ def _serialize_berry_stats(berry_stats: BerryStats) -> 'BerryStatsDict':
     }
 
 
-@cache_static_endpoint(
+@cache_fn_static_result(
     'allBerryStats',
     serialize_cb   = json.dumps,
     deserialize_cb = json.loads,
-    timeout = 60*60*24
 )
 def get_all_berries_stats() -> 'BerryStatsDict':
     """ Fetch all the berries and return their stats structured in the expected format """
     berries = fetch_all_berries()
     stats   = BerryStats(berries)
     return _serialize_berry_stats(stats)
+
+
+def get_berries_histogram() -> str:
+    """ Fetch all the berries, create an html with an histogram embeded
+        and returns it"""
+    berries = fetch_all_berries()
+    stats   = BerryStatsStatsPlot(berries)
+
+    histogram_file = stats.generate_histogram_plot()
+    return base64.b64encode(histogram_file.getvalue()).decode('utf-8')

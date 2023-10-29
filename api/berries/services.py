@@ -1,8 +1,10 @@
+import json
 from typing import List, TYPE_CHECKING, TypedDict, Iterable
 import math
 
 import requests
 
+from api.cache import cache_fn_static_result
 from api.settings import (
     BERRIES_PER_PAGE_LIMIT,
     REQUEST_TIMEOUT,
@@ -64,6 +66,11 @@ def _fetch_berrie_pages() -> Iterable['BerryPage']:
     for page in range(2, n_pages + 1):
         yield _fetch_berries_page(page)
 
+@cache_fn_static_result(
+    'berries-details',
+    serialize_cb   = json.dumps,
+    deserialize_cb = json.loads,
+)
 def fetch_all_berries() -> List['BerryDetail']:
     """Fetch all berries details from the pokeapi.co API"""
 

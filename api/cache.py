@@ -1,6 +1,11 @@
 import redis
 
-from .settings import REDIS_HOST, REDIS_PORT, REDIS_CACHE_ENABLED
+from .settings import (
+    CACHE_EXPIRATION,
+    REDIS_HOST,
+    REDIS_PORT,
+    REDIS_CACHE_ENABLED
+)
 
 class Cache(object):
     def __new__(cls):
@@ -17,25 +22,25 @@ class Cache(object):
     def get(self, key: str):
         return self._redis.get(key)
 
-def cache_static_endpoint(
-    endpoint_key: str,
+def cache_fn_static_result(
+    key: str,
     serialize_cb: callable,
     deserialize_cb: callable,
-    timeout: int = None,
+    timeout: int = CACHE_EXPIRATION,
 ):
-    def _cache_endpoint(fn):
+    def _cache_fn_result(fn):
         if not REDIS_CACHE_ENABLED:
             return fn
 
         def _wrapper(*args, **kwargs):
             cache = Cache()
 
-            if cached_result := cache.get(endpoint_key):
+            if cached_result := cache.get(key):
                 return deserialize_cb(cached_result)
 
             result = fn(*args, **kwargs)
-            cache.set(endpoint_key, serialize_cb(result), timeout)
+            cache.set(key, serialize_cb(result), timeout)
 
             return result
         return _wrapper
-    return _cache_endpoint
+    return _cache_fn_result

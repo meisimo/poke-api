@@ -1,6 +1,9 @@
-from typing import Dict, List, TYPE_CHECKING
 from collections import Counter
+from io import BytesIO
+from typing import Dict, List, TYPE_CHECKING
 from statistics import median, variance, mean
+
+import matplotlib.pyplot as plt
 
 
 if TYPE_CHECKING:
@@ -34,3 +37,18 @@ class BerryStats():
 
     def get_frequency_growth_time(self) -> Dict[int, int]:
         return Counter(b['growth_time'] for b in self._berries)
+
+
+class BerryStatsStatsPlot():
+    def __init__(self, berries: List['BerryDetail']) -> None:
+        self._stats = BerryStats(berries)
+
+    def generate_histogram_plot(self):
+        fig, ax = plt.subplots()
+
+        ax.hist([b['growth_time'] for b in self._stats.berries])
+
+        tmp_file = BytesIO()
+        fig.savefig(tmp_file, format='png')
+
+        return tmp_file
