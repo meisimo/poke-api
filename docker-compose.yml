@@ -5,7 +5,7 @@ services:
     environment:
       - REDIS_HOST=redis-cache
       - REDIS_PORT=6379
-      - REDIS_CACHE_ENABLED=False
+      - REDIS_CACHE_ENABLED=True
     expose:
       - "8000"
     ports:
