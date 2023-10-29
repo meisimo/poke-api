@@ -6,8 +6,6 @@ services:
       - REDIS_HOST=redis-cache
       - REDIS_PORT=6379
       - REDIS_CACHE_ENABLED=True
-    expose:
-      - "8000"
     ports:
       - "8000:8000"
     command: uvicorn api.main:app --host 0.0.0.0
