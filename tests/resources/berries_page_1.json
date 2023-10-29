@@ -1,0 +1,27 @@
+{
+  "count": 8,
+  "next": "https://pokeapi.co/api/v2/berry/?offset=60&limit=4",
+  "previous": "https://pokeapi.co/api/v2/berry/?offset=20&limit=20",
+  "results": [
+    {
+      "name": "chople",
+      "url": "https://pokeapi.co/api/v2/berry/41/"
+    },
+    {
+      "name": "kebia",
+      "url": "https://pokeapi.co/api/v2/berry/42/"
+    },
+    {
+      "name": "shuca",
+      "url": "https://pokeapi.co/api/v2/berry/43/"
+    },
+    {
+      "name": "coba",
+      "url": "https://pokeapi.co/api/v2/berry/44/"
+    },
+    {
+      "name": "payapa",
+      "url": "https://pokeapi.co/api/v2/berry/45/"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from .berry_stats import BerryStats
+from .controller import get_all_berries_stats
 
 
 if TYPE_CHECKING:
@@ -9,5 +9,5 @@ if TYPE_CHECKING:
 def route(app: 'FastAPI'):
 
     @app.get("/allBerryStats")
-    async def read_all_berry_stats():
-        return {}
+    async def all_berry_stats():
+        return get_all_berries_stats()

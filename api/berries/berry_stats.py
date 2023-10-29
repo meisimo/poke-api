@@ -1,19 +1,10 @@
-from typing import Dict, List, TYPE_CHECKING, TypedDict
+from typing import Dict, List, TYPE_CHECKING
 from collections import Counter
 from statistics import median, variance, mean
 
 
 if TYPE_CHECKING:
     from .services import BerryDetail
-
-    class BerryStatsDict(TypedDict):
-        berries_names: list[str]
-        min_growth_time: int
-        median_growth_time: float
-        max_growth_time: int
-        variance_growth_time: float
-        mean_growth_time: float
-        frequency_growth_time: Dict[int, int]
 
 
 class BerryStats():

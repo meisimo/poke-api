@@ -1,0 +1,19 @@
+{
+  "count": 8,
+  "next": null,
+  "previous": "https://pokeapi.co/api/v2/berry/?offset=40&limit=20",
+  "results": [
+    {
+      "name": "micle",
+      "url": "https://pokeapi.co/api/v2/berry/61/"
+    },
+    {
+      "name": "custap",
+      "url": "https://pokeapi.co/api/v2/berry/62/"
+    },
+    {
+      "name": "jaboca",
+      "url": "https://pokeapi.co/api/v2/berry/63/"
+    }
+  ]
+}
