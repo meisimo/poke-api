@@ -1,0 +1,4 @@
+import os
+
+BERRIES_PER_PAGE_LIMIT = os.environ.get('BERRIES_PER_PAGE_LIMIT', 20)
+REQUEST_TIMEOUT = os.environ.get('REQUEST_TIMEOUT', 10)
