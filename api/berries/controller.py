@@ -1,4 +1,7 @@
+import json
 from typing import Dict, TYPE_CHECKING, TypedDict
+
+from api.cache import cache_static_endpoint
 
 from .services import fetch_all_berries
 from .berry_stats import BerryStats
@@ -14,7 +17,6 @@ if TYPE_CHECKING:
         frequency_growth_time: Dict[int, int]
 
 
-
 def _serialize_berry_stats(berry_stats: BerryStats) -> 'BerryStatsDict':
     return {
         'berries_names': [b['name'] for b in berry_stats.berries],
@@ -27,6 +29,12 @@ def _serialize_berry_stats(berry_stats: BerryStats) -> 'BerryStatsDict':
     }
 
 
+@cache_static_endpoint(
+    'allBerryStats',
+    serialize_cb   = json.dumps,
+    deserialize_cb = json.loads,
+    timeout = 60*60*24
+)
 def get_all_berries_stats() -> 'BerryStatsDict':
     """ Fetch all the berries and return their stats structured in the expected format """
     berries = fetch_all_berries()

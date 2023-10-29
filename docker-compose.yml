@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    environment:
+      - REDIS_HOST=redis-cache
+      - REDIS_PORT=6379
+      - REDIS_CACHE_ENABLED=False
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    command: uvicorn api.main:app --host 0.0.0.0
+    networks:
+      - cache
+    depends_on:
+      - redis-cache
+
+  redis-cache:
+    image: redis:alpine
+    hostname: redis-cache
+    container_name: redis-cache
+    restart: on-failure
+    ports:
+      - '6379:6379'
+    command: redis-server
+    networks:
+      - cache
+
+networks:
+  cache:

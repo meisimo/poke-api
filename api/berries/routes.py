@@ -9,5 +9,5 @@ if TYPE_CHECKING:
 def route(app: 'FastAPI'):
 
     @app.get("/allBerryStats")
-    async def all_berry_stats():
+    def all_berry_stats():
         return get_all_berries_stats()

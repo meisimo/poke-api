@@ -4,6 +4,7 @@ import os
 from requests import Response
 from fastapi.testclient import TestClient
 
+from api import cache
 from api.berries import services
 from api.main import app
 
@@ -41,6 +42,7 @@ def mock_request(mocker, monkeypatch):
         mock_requests
     )
     monkeypatch.setattr(services, 'BERRIES_PER_PAGE_LIMIT', 5)
+    monkeypatch.setattr(cache, 'REDIS_CACHE_ENABLED', False)
 
 
 def test_all_berry_stats(mocker, monkeypatch):
